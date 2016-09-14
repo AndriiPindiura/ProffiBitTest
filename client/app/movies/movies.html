@@ -1,0 +1,34 @@
+<section class="movies">
+    <header>
+        <h2>myMovies</h2>
+        <input placeholder="Search by title"/>
+        <input placeholder="Search by actor"/>
+        <div>
+            <button>
+                <div>
+                    <span></span>
+                    <div>
+                        <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg>
+                    </div>
+                </div>
+            </button>
+        </div>
+    </header>
+    {{vm.message}}
+    <ul>
+        <li ng-repeat="item in vm.movies" class="{{($index + 1) % 2 === 0 ? 'odd' : null}}">
+            <div>
+                <div>
+                    <h2>{{item.title}}</h2>
+                </div>
+                <div>{{item.releaseYear}}</div>
+                <div>{{item.videoType}}</div>
+                <div>
+                    <p>{{item.actors}}</p>
+                </div>
+            <div>
+             
+        </li>
+    </ul>
+
+</section>

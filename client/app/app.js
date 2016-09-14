@@ -18,13 +18,14 @@ import {
 import navbar from '../components/navbar/navbar.component';
 import footer from '../components/footer/footer.component';
 import main from './main/main.component';
+import movies from './movies/movies.component';
 import constants from './app.constants';
 import util from '../components/util/util.module';
 
 import './app.scss';
 
 angular.module('proffibitTestApp', [ngCookies, ngResource, ngSanitize, uiRouter, uiBootstrap,
-    navbar, footer, main, constants, util
+    navbar, footer, main, movies, constants, util
   ])
   .config(routeConfig);
 
