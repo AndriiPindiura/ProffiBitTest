@@ -2,9 +2,10 @@ $icon-font-path: '/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 $fa-font-path: '/assets/fonts/font-awesome/';
 @import '~font-awesome/scss/font-awesome';
+
 // @import 'reset';
 
-// @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,900|Roboto:300,500,700,900);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,900|Roboto:300,500,700,900);
 
 /**
  * App-wide Styles
@@ -19,10 +20,12 @@ $fa-font-path: '/assets/fonts/font-awesome/';
 
 // Component styles are injected through gulp
 /* inject:scss */
-@import 'main/main';
-@import 'movies/movies';
-@import 'movies/variables';
-@import 'reset';
-@import '../components/footer/footer';
-@import '../components/modal/modal';
+@import 'main';
+// @import 'create/create';
+// @import 'main/main';
+// @import 'movies/movies';
+// @import 'movies/variables';
+// @import 'reset';
+// @import '../components/footer/footer';
+// @import '../components/modal/modal';
 /* endinject */

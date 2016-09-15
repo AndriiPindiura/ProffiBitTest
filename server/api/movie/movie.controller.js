@@ -80,9 +80,21 @@ export function show(req, res) {
 
 // Creates a new Movies in the DB
 export function create(req, res) {
+  console.log(req.body);
+
   return Movies.create(req.body)
-    .then(respondWithResult(res, 201))
-    .catch(handleError(res));
+    .then(response => {
+      console.log(response);
+      res.sendStatus(201);
+    })
+    .catch(error => {
+      console.log(error);
+      res.sendStatus(500);
+    });
+  // return res.sendStatus(201);
+  // return Movies.create(req.body)
+  //   .then(respondWithResult(res, 201))
+  //   .catch(handleError(res));
 }
 
 // Upserts the given Movies in the DB at the specified ID
@@ -97,9 +109,46 @@ export function upsert(req, res) {
 }
 
 export function importMovies(req, res) {
-  req.body.forEach(movie => {
-    Movies.create(movie).catch(error => console.log(error));
+  // console.log(req.rawBody);
+  const movies = [];
+  let movie = {
+    title: '',
+    releaseYear: '',
+    videoType: '',
+    actors: '',
+  };
+  const strings = req.rawBody.split('\n');
+  strings.forEach(line => {
+    if(line.length < 1) {
+      if(movie.title.length > 0) {
+        movies.push(movie);
+      }
+      movie = {
+        title: '',
+        releaseYear: '',
+        videoType: '',
+        actors: [],
+      };
+    }
+    movie.title = line.startsWith('Title:')
+      ? line.replace('Title: ', '')
+      : movie.title;
+    movie.releaseYear = line.startsWith('Release Year: ')
+      ? line.replace('Release Year: ', '')
+      : movie.releaseYear;
+    movie.videoType = line.startsWith('Format: ')
+      ? line.replace('Format: ', '')
+      : movie.videoType;
+    movie.actors = line.startsWith('Stars: ')
+      ? line.replace('Stars: ', '')
+      : movie.actors;
   });
+  // console.log(movies);
+  movies.forEach(film => Movies.create(film).catch(error => console.log(error)));
+  // bodyParser.raw()
+  // req.body.forEach(movie => {
+  //   Movies.create(movie).catch(error => console.log(error));
+  // });
   res.status('201').end();
 }
 
@@ -123,3 +172,8 @@ export function destroy(req, res) {
     .then(removeEntity(res))
     .catch(handleError(res));
 }
+
+export function wipe(req, res) {
+  return Movies.remove().then(() => res.sendStatus(204), () => res.sendStatus(500));
+}
+

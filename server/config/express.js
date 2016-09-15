@@ -34,13 +34,21 @@ export default function(app) {
   app.set('appPath', path.join(config.root, 'client'));
   app.use(express.static(app.get('appPath')));
   app.use(morgan('dev'));
-
+  // app.use((req, res, next) => {
+  //   req.rawBody = '';
+  //   req.on('data', chunk => {
+  //     req.rawBody += chunk;
+  //   });
+  //   req.on('end', () => next());
+  // });
   app.set('views', config.root + '/server/views');
   app.engine('html', require('ejs').renderFile);
   app.set('view engine', 'html');
   app.use(shrinkRay());
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
+  // app.use(express.bodyParser());
+  app.use(bodyParser.raw({ type: 'application/vnd.custom-type' }));
   app.use(methodOverride());
   app.use(cookieParser());
 

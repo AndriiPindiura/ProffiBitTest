@@ -1,6 +1,6 @@
-@import 'variables';
+& {
+    background: rgb(248, 248, 248);
 
-.movies {
     header {
         display: flex;
         position: relative;
@@ -11,7 +11,7 @@
         h2 {
             margin: 0;
             color: #fff;
-            font-family: sans-serif;
+            font-family: Roboto;
             font-size: 14px;
             font-weight: bold;
         }
@@ -25,7 +25,7 @@
             border-bottom: 1px solid $inputBorderColor;
             background: $appBarBackgroundColor url('/assets/images/movies/ic_search.svg') no-repeat 2px 9px;
             color: $inputFontColor;
-            font-family: sans-serif;
+            font-family: Roboto;
             font-size: 12px;
             font-weight: bold;
             // opacity: 0.5;
@@ -96,5 +96,107 @@
             }
         }
 
+    }
+
+    section {
+        padding: 20px;
+
+        >div {
+            display: flex;
+            align-items: center;
+            height: 56px;
+            background: #fff;
+            
+            .id {
+                width: 10%
+            }
+
+            h4 {
+                width: 40%;
+                padding: 0 24px;
+                font-weight: normal;
+                font-size: 12px;
+                padding-left: 24px;
+                padding-right: 24px;
+                text-align: left;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                color: rgb(158, 158, 158);
+            }
+        }
+        
+        ul {
+            background: #fff;
+
+            li {
+                >div {
+                    display: flex;
+                    min-height: 48px;
+                    border-bottom: 1px solid rgb(224, 224, 224);
+
+                    .item-id {
+                        display: flex;
+                        align-items: center;
+                        width: 10%;
+                        color: #9d9d9d;
+                        font-family: Roboto;
+                        font-size: 14px;
+                        font-weight: 100;
+                        overflow: hidden;
+                    }
+
+                    .item-actors {
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    div {
+                        // display: block;
+                        width: 40%;
+                        padding: 0 24px;
+
+                        h2 {
+                            color: #2d2d2d;
+                            margin: 5px auto;
+                            font-family: Roboto;
+                            font-size: 14px;
+                            font-weight: bold;
+                        }
+
+                        span {
+                            color: #9d9d9d;
+                            font-family: Roboto;
+                            font-size: 14px;
+                            font-weight: 100;
+                        }
+
+                        p {
+                            color: #9d9d9d;
+                            text-align: left;
+                            font-family: Roboto, sans-serif;
+                            font-size: 14px;
+                            font-weight: 100;
+                            overflow: hidden;
+                            white-space: pre-wrap;
+                            text-overflow: ellipsis;
+                        }
+                    }
+
+                    .item-button {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-end;
+                        width: 10%;
+
+                        button {
+                            border: 0;
+                            background: transparent;
+                            outline: 0;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

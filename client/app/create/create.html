@@ -1,0 +1,42 @@
+<section class="create">
+     <h3>Add new movie</h3>
+     <form ng-submit="vm.submit()" name="vm.movieForm" ng-class="{'error': vm.movie.$invalid}">
+        <div>
+            <h4>Movie info</h4>
+            <div>
+                <input placeholder="Movie title" ng-model="vm.movie.title" required/>
+                <select ng-model="vm.movie.releaseYear" required>
+                    <option ng-repeat="year in vm.years" value="{{year}}">{{year}}</option>
+                </select>
+                <select ng-model="vm.movie.videoType" required>
+                    <option ng-repeat="type in vm.quality" value="{{type}}">{{type}}</option>
+                </select>
+            </div>
+            <h4>Actors</h4>
+            <input placeholder="Actors" ng-model="vm.movie.actors" required />
+        </div>
+        <footer>
+            <input type="file" id="imp" ngf-select="vm.uploadFile($file, $invalidFiles)"/>
+            <label for="imp">
+                <div>
+                    <span>import</span>
+                </div>
+            </label>
+            <!--<button tabindex="0" type="button" ng-click="vm.selectFile()">
+                <div>
+                    <span>import</span>
+                </div>
+            </button>-->
+            <button tabindex="0" type="button" class="cancel" ng-click="vm.cancel()">
+                <div>
+                    <span>cancel</span>
+                </div>
+            </button>
+            <button tabindex="0" type="submit">
+                <div>
+                    <span>add</span>
+                </div>
+            </button>
+        </footer>
+     </form>
+</section>
