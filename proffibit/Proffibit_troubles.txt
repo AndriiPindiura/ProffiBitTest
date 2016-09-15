@@ -1,0 +1,8 @@
+1. npm i (angular-fullstack) - need dependencies + python + update npm to 3.10.7
+2. images svg in scss - path begins with /assests/...
+3. expressjs request upload file - body-parser
+4. warning on mongoose promisses (find().exec().then() change to remove.then(func1, func2))
+5. ngStrict on modal component (remove export from component class)
+6. emulate click on hidden input (label for button + ng-file-upload)
+7. stream encoding not to be set
+
