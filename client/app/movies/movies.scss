@@ -1,4 +1,6 @@
-& {
+@import 'variables';
+
+.movies {
     background: rgb(248, 248, 248);
 
     header {
@@ -118,6 +120,7 @@
                 font-size: 12px;
                 padding-left: 24px;
                 padding-right: 24px;
+                // height: 56px;
                 text-align: left;
                 white-space: nowrap;
                 text-overflow: ellipsis;
